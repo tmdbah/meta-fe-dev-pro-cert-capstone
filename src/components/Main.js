@@ -1,8 +1,11 @@
 function Main() {
   return (
-    <div className="main App-header">
-      <p>Main</p>
-    </div>
+    <main>
+      <div className="main-container">
+        <h2 className="main-title">This weeks specials!</h2>
+        <button className="main-online-menu">Online Menu</button>
+      </div>
+    </main>
   );
 }
 

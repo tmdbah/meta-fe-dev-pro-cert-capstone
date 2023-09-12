@@ -1,10 +1,14 @@
-import logo from "../assets/little-lemon-logo.png";
+import logo from "../assets/img/little-lemon-logo.png";
 
 function Nav() {
   return (
-    <nav className="main-nav App">
-      <img height={25} src={logo} alt="Logo" />
-      <ul>
+    <nav>
+      <ul className="nav-container">
+        <li>
+          <a href="#home">
+            <img height={25} src={logo} alt="Logo" />
+          </a>
+        </li>
         <li>
           <a href="#home">Home</a>
         </li>
