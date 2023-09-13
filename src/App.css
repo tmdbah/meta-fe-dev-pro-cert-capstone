@@ -1,69 +1,161 @@
+/* Import Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap");
+
 /* Basic universal styling */
 * {
+  font-family: "Titillium Web", sans-serif;
   box-sizing: border-box; /* Padding and Border are included in the width & height */
   /* Clear browser specific formatting */
   margin: 0;
   padding: 0;
 }
 
+/* CSS variables */
+
+:root {
+  --mainColor: white;
+  --mainColorLight: gray;
+  --secondaryColor: #f4ce14;
+  --textColor: black;
+}
+
 body {
-  display: grid;
-  /* grid-template-rows: auto 1fr auto; */
+  /* display: grid;
+  grid-template-columns: repeat(12, auto);
+  grid-template-rows: repeat(6, auto); */
 }
 
 /* nav styles */
 
 nav {
   display: flex;
-  justify-content: center;
-}
-
-.nav-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: stretch;
   align-items: center;
-  padding: 1em 5em 1em 5em;
+  font-size: 1rem;
 }
 
-.nav-container li {
-  list-style-type: none;
-}
-
-.nav-container a {
-  display: inline-block;
-  padding: 10px;
-  margin: 0 10px;
-  text-align: center;
+nav a {
+  margin: 0 2rem;
+  color: var(--textColor);
   text-decoration: none;
 }
 
-.nav-container a:hover {
-  color: #f4ce14;
+nav a:hover {
+  color: var(--secondaryColor);
 }
 
-@media (max-width: 1200px) {
-  .nav-container {
-    font-size: x-small;
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: 1s;
+    transform: translateY(-100vh);
+  }
+
+  header .responsive_nav {
+    transform: none;
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  nav a {
+    font-size: 1.5rem;
   }
 }
 
 header {
-  background-color: #495e57;
-  /* padding: 1em 6em 1em 6em; */
-  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
 }
 
-header h1 {
-  color: #f4ce14;
-  font-size: 2rem;
-}
+/* @media only screen and (max-width: 415px) {
+  .header-container {
+    background-color: #495e57;
 
-header p {
-  font-size: smaller;
-}
+    display: grid;
+    grid-template-columns: 0.1fr 3fr 0.1fr;
+    grid-template-areas:
+      ". header-title ."
+      ". header-subTitle ."
+      ". header-description ."
+      ". header-reserveTableButton ."
+      ". header-headerImg .";
+  }
 
+  .header-container h1 {
+    color: #f4ce14;
+    font-size: 2rem;
+  }
+
+  .header-container p {
+    font-size: smaller;
+  }
+
+  .header-title {
+    grid-area: header-title;
+  }
+
+  .header-subTitle {
+    grid-area: header-subTitle;
+  }
+
+  .header-description {
+    grid-area: header-description;
+    margin-top: 0.4rem;
+  }
+
+  .header-reserveTableButton {
+    grid-area: header-reserveTableButton;
+    margin: 0.7rem 0rem 0.8rem 0rem;
+  }
+
+  .header-headerImg {
+    grid-area: header-headerImg;
+    margin: 1rem 0rem 0rem 1rem;
+    border-radius: 10px;
+    height: 250px;
+    width: 240px;
+  }
+} */
+
+/* @media only screen and (min-width: 1024px) { */
 .header-container {
+  background-color: #495e57;
+
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 2fr;
   grid-template-rows: 0.199fr 0.1fr 0.199fr 0.199fr;
@@ -72,6 +164,15 @@ header p {
     ". header-subTitle . header-headerImg ."
     ". header-description header-description header-headerImg ."
     ". header-reserveTableButton . header-headerImg .";
+}
+
+.header-container h1 {
+  color: #f4ce14;
+  font-size: 2rem;
+}
+
+.header-container p {
+  font-size: smaller;
 }
 
 .header-title {
@@ -99,9 +200,10 @@ header p {
   height: 250px;
   width: 240px;
 }
+/* } */
 
 main {
-  height: 100vh;
+  height: 75vh;
   padding: 1em;
 }
 
