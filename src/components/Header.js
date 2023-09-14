@@ -2,7 +2,7 @@ import foodPlatter from "../assets/img/reserve-table.jpg";
 
 function Header() {
   return (
-    <div className="header-container">
+    <header className="header-container">
       <h1 className="header-title">Little Lemon</h1>
       <h2 className="header-subTitle">Chicago</h2>
       <p className="header-description">
@@ -18,7 +18,7 @@ function Header() {
         src={foodPlatter}
         alt="Food Platter"
       />
-    </div>
+    </header>
   );
 }
 

@@ -11,7 +11,7 @@ function Navbar() {
   };
 
   return (
-    <header>
+    <div className="nav-container">
       <img className="logo" height={25} src={logo} alt="Logo" />
       <nav ref={navRef}>
         <a href="#home">Home</a>
@@ -27,7 +27,7 @@ function Navbar() {
       <button className="nav-btn" onClick={showNavBar}>
         <FaBars />
       </button>
-    </header>
+    </div>
   );
 }
 
