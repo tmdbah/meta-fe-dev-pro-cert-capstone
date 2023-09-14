@@ -1,5 +1,5 @@
 import logo from "../assets/img/little-lemon-logo.png";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaCartPlus } from "react-icons/fa";
 import { useRef } from "react";
 import "../App.css";
 
@@ -12,7 +12,13 @@ function Navbar() {
 
   return (
     <div className="nav-container">
+      <button className="nav-btn" onClick={showNavBar}>
+        <FaBars />
+      </button>
       <img className="logo" height={25} src={logo} alt="Logo" />
+      <button className="nav-btn">
+        <FaCartPlus />
+      </button>
       <nav ref={navRef}>
         <a href="#home">Home</a>
         <a href="#about">About</a>
@@ -24,9 +30,6 @@ function Navbar() {
           <FaTimes />
         </button>
       </nav>
-      <button className="nav-btn" onClick={showNavBar}>
-        <FaBars />
-      </button>
     </div>
   );
 }
