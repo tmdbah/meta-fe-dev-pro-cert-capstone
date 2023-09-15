@@ -30,7 +30,7 @@ body {
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 80px;
   padding: 0 2rem;
   background-color: var(--mainColor);
@@ -56,16 +56,23 @@ nav {
 }
 
 nav a {
-  margin: 0 2rem;
-  color: var(--textColor);
+  margin: 0 0.75rem;
   text-decoration: none;
+  padding: 0px 5px 0px 5px;
+  border-radius: 5px;
+  color: var(--textColor);
 }
 
 nav a:hover {
-  color: var(--secondaryColor);
+  color: var(--mainColor);
+  background-color: #495e57;
 }
 
 @media only screen and (max-width: 1024px) {
+  .nav-container {
+    justify-content: space-between;
+  }
+
   .nav-container .nav-btn {
     visibility: visible;
     opacity: 1;
@@ -110,8 +117,15 @@ nav a:hover {
 }
 
 .header-container h1 {
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: #f4ce14;
+}
+
+.header-container button {
+  padding: 8px;
+  border-radius: 10px;
+  background-color: #f4ce14;
+  border: none;
 }
 
 .header-title {
@@ -124,35 +138,34 @@ nav a:hover {
 
 .header-description {
   grid-area: header-description;
-  margin-top: 0.4rem;
-  padding-right: 0.4rem;
+  padding-right: 1rem;
 }
 
 .header-reserveTableButton {
   grid-area: header-reserveTableButton;
-  margin: 0.7rem 0rem 0.8rem 0rem;
+  /* margin: 0.7rem 0rem 0.8rem 0rem; */
+  margin: auto auto auto 0;
 }
 
 .header-headerImg {
   grid-area: header-headerImg;
   border-radius: 10px;
-  height: 250px;
-  width: 240px;
+  height: 50%;
+  width: 100%;
   margin: auto;
 }
 
 .header-container {
   display: grid;
-  grid-template-columns: 0.1fr 3fr 0.1fr;
+  grid-template-columns: 0.1fr 2.5fr 1.5fr 0.1fr;
   grid-template-areas:
-    ". header-title ."
-    ". header-subTitle ."
-    ". header-description ."
-    ". header-reserveTableButton ."
-    ". header-headerImg .";
+    ". header-title header-headerImg"
+    ". header-subTitle header-headerImg"
+    ". header-description header-headerImg"
+    ". header-reserveTableButton header-headerImg";
 }
 
-@media (min-width: 475px) {
+/* @media (min-width: 475px) {
   .header-container {
     display: grid;
     grid-template-columns: 0.1fr 2fr 2fr 0.1fr;
@@ -162,9 +175,9 @@ nav a:hover {
       ". header-description header-headerImg"
       ". header-reserveTableButton header-headerImg";
   }
-}
+} */
 
-@media (min-width: 875px) {
+/* @media (min-width: 875px) {
   .header-container {
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 0.199fr 0.1fr 0.199fr 0.199fr;
@@ -174,9 +187,9 @@ nav a:hover {
       ". header-description header-description header-headerImg ."
       ". header-reserveTableButton . header-headerImg .";
   }
-}
+} */
 
-@media (min-width: 1902px) {
+/* @media (min-width: 1902px) {
   .header-container {
     grid-template-columns: 3fr 1fr 1fr 1fr 3fr;
     grid-template-rows: 0.199fr 0.1fr 0.199fr 0.199fr;
@@ -186,7 +199,7 @@ nav a:hover {
       ". header-description header-description header-headerImg ."
       ". header-reserveTableButton . header-headerImg .";
   }
-}
+} */
 
 /* Main Styles */
 
@@ -211,12 +224,7 @@ main {
   grid-area: main-online-menu;
 }
 
-button {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #f4ce14;
-  border: none;
-}
+/* Footer Styles */
 
 footer {
   background-color: #495e57;
