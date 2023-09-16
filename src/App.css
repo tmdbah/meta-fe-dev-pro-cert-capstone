@@ -286,6 +286,66 @@ nav a:hover {
   }
 }
 
+@media (min-width: 1280px) {
+  .nav-container nav a {
+    margin: 0 1rem;
+    font-size: 1rem;
+  }
+  .header-container {
+    grid-template-columns: 22% 33% 23% 22%;
+  }
+  .header-title {
+    font-size: 3.5rem;
+  }
+  .header-subTitle {
+    font-size: 2.1rem;
+  }
+  .header-description {
+    font-size: 1.6rem;
+  }
+  .header-reserveTableButton {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .nav-container nav a {
+    margin: 0 1.2rem;
+    font-size: 1.2rem;
+  }
+  .header-title {
+    font-size: 4rem;
+  }
+  .header-subTitle {
+    font-size: 2.6rem;
+  }
+  .header-description {
+    font-size: 1.8rem;
+  }
+  .header-reserveTableButton {
+    font-size: 1.7rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .nav-container nav a {
+    margin: 0 2.2rem;
+    font-size: 1.35rem;
+  }
+  .header-title {
+    font-size: 5.2rem;
+  }
+  .header-subTitle {
+    font-size: 3.2rem;
+  }
+  .header-description {
+    font-size: 2.2rem;
+  }
+  .header-reserveTableButton {
+    font-size: 1.8rem;
+  }
+}
+
 /* Main Styles */
 
 main {
