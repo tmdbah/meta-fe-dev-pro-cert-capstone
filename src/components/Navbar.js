@@ -15,7 +15,7 @@ function Navbar() {
       <button className="nav-btn" onClick={showNavBar}>
         <FaBars />
       </button>
-      <img className="logo" height={25} src={logo} alt="Logo" />
+      <img className="logo" src={logo} alt="Logo" />
       <button className="nav-btn">
         <FaCartPlus />
       </button>
