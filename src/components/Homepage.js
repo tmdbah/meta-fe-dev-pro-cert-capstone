@@ -7,7 +7,7 @@ import Footer from "./Footer";
 function Homepage() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <CallToAction />
       <Main />
       <Footer />

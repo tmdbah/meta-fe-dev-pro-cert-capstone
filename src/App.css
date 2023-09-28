@@ -348,6 +348,10 @@ nav a:hover {
 
 /* Main Styles */
 
+.center {
+  text-align: center;
+}
+
 main {
   height: 75vh;
   padding: 1em;
