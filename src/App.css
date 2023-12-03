@@ -350,6 +350,7 @@ nav a:hover {
 
 .center {
   text-align: center;
+  margin: 30px;
 }
 
 main {
@@ -371,6 +372,14 @@ main {
 
 .main-online-menu {
   grid-area: main-online-menu;
+}
+
+.form-components label,
+input,
+select,
+button {
+  margin: 20px;
+  padding: 10px;
 }
 
 /* Footer Styles */
