@@ -1,12 +1,16 @@
 import "../App.css";
 import { useState } from "react";
 
-function BookingForm() {
+function BookingForm({ selectedTime, updateTimes }) {
   const [name, setName] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("Time");
-  const [numOfGuests, setNumOfGuests] = useState("1");
-  const [occasion, setOccasion] = useState("Occasion");
+  const [numOfGuests, setNumOfGuests] = useState("");
+  const [occasion, setOccasion] = useState("");
+
+  const handleTimeChange = (e) => {
+    const newTime = e.target.value;
+    updateTimes(newTime);
+  };
 
   const getIsFormValid = () => {
     return (
@@ -17,9 +21,9 @@ function BookingForm() {
   const clearForm = () => {
     setName("");
     setSelectedDate("");
-    setSelectedTime("Time");
+    updateTimes("");
     setNumOfGuests("1");
-    setOccasion("occasion");
+    setOccasion("");
   };
 
   const handleSubmit = (e) => {
@@ -30,8 +34,17 @@ function BookingForm() {
 
   return (
     <>
-      <form className="center form-components" onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
+      <h1 id="booking-form-label" className="center">
+        Reservation Form:
+      </h1>
+      <form
+        className="center form-components"
+        onSubmit={handleSubmit}
+        aria-labelledby="booking-form-label"
+      >
+        <label htmlFor="name" aria-label="Name:">
+          Name:
+        </label>
         <input
           type="text"
           id="name"
@@ -39,23 +52,30 @@ function BookingForm() {
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          aria-required="true"
         />
         <br />
-        <label htmlFor="res-date">Choose date</label>
+        <label htmlFor="res-date" aria-label="Choose date">
+          Choose date
+        </label>
         <input
           type="date"
           value={selectedDate}
           id="res-date"
           onChange={(e) => setSelectedDate(e.target.value)}
+          aria-required="true"
         />
         <br />
-        <label htmlFor="res-time">Choose time</label>
+        <label htmlFor="res-time" aria-label="Choose time">
+          Choose time
+        </label>
         <select
           value={selectedTime}
           id="res-time"
-          onChange={(e) => setSelectedTime(e.target.value)}
+          onChange={handleTimeChange}
+          aria-required="true"
         >
-          <option value="time">Time</option>
+          <option value="">Time</option>
           <option value="17:00">17:00</option>
           <option value="18:00">18:00</option>
           <option value="19:00">19:00</option>
@@ -64,29 +84,37 @@ function BookingForm() {
           <option value="22:00">22:00</option>
         </select>
         <br />
-        <label htmlFor="guests">Number of guests</label>
+        <label htmlFor="guests" aria-label="Number of guests">
+          Number of guests
+        </label>
         <input
           value={numOfGuests}
           type="number"
-          placeholder="1"
           min="1"
           max="10"
           id="guests"
+          placeholder="0"
           onChange={(e) => setNumOfGuests(e.target.value)}
+          aria-required="true"
         />
         <br />
-        <label htmlFor="occasion">Occasion</label>
+        <label htmlFor="occasion" aria-label="Occasion">
+          Occasion
+        </label>
         <select
           value={occasion}
           id="occasion"
           onChange={(e) => setOccasion(e.target.value)}
+          aria-required="true"
         >
-          <option value="occasion">Occasion</option>
+          <option value="">Occasion</option>
           <option value="birthday">Birthday</option>
           <option value="anniversary">Anniversary</option>
         </select>
         <br />
-        <button disabled={!getIsFormValid()} type="submit">
+      </form>
+      <div className="center">
+        <button disabled={!getIsFormValid()} type="submit" aria-live="polite">
           Make Your reservation
         </button>
         <h2>State Confirmation:</h2>
@@ -95,7 +123,7 @@ function BookingForm() {
         <p>Selected Time: {selectedTime}</p>
         <p>Number of Guests: {numOfGuests}</p>
         <p>Selected Occasion: {occasion}</p>
-      </form>
+      </div>
     </>
   );
 }
