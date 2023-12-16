@@ -4,7 +4,7 @@ import { useState } from "react";
 function BookingForm({ selectedTime, updateTimes }) {
   const [name, setName] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
-  const [numOfGuests, setNumOfGuests] = useState("");
+  const [numOfGuests, setNumOfGuests] = useState("1");
   const [occasion, setOccasion] = useState("");
 
   const handleTimeChange = (e) => {
@@ -13,9 +13,7 @@ function BookingForm({ selectedTime, updateTimes }) {
   };
 
   const getIsFormValid = () => {
-    return (
-      name && selectedDate && selectedTime !== "Time" && occasion !== "Occasion"
-    );
+    return name && selectedDate && selectedTime !== "" && occasion !== "";
   };
 
   const clearForm = () => {
@@ -66,7 +64,7 @@ function BookingForm({ selectedTime, updateTimes }) {
           aria-required="true"
         />
         <br />
-        <label htmlFor="res-time" aria-label="Choose time">
+        <label htmlFor="res-time" aria-label="Choose time for reservation">
           Choose time
         </label>
         <select
@@ -74,6 +72,8 @@ function BookingForm({ selectedTime, updateTimes }) {
           id="res-time"
           onChange={handleTimeChange}
           aria-required="true"
+          aria-labelledby="choose-time-label"
+          placeholder="Time"
         >
           <option value="">Time</option>
           <option value="17:00">17:00</option>
@@ -93,7 +93,7 @@ function BookingForm({ selectedTime, updateTimes }) {
           min="1"
           max="10"
           id="guests"
-          placeholder="0"
+          placeholder="1"
           onChange={(e) => setNumOfGuests(e.target.value)}
           aria-required="true"
         />
@@ -112,11 +112,18 @@ function BookingForm({ selectedTime, updateTimes }) {
           <option value="anniversary">Anniversary</option>
         </select>
         <br />
-      </form>
-      <div className="center">
-        <button disabled={!getIsFormValid()} type="submit" aria-live="polite">
+        <button
+          disabled={!getIsFormValid()}
+          type="submit"
+          aria-live="polite"
+          aria-label="Make Your reservation"
+          role="submitButton"
+          name="Make Your reservation"
+        >
           Make Your reservation
         </button>
+      </form>
+      <div className="center">
         <h2>State Confirmation:</h2>
         <p>Set Name: {name}</p>
         <p>Selected Date: {selectedDate}</p>
